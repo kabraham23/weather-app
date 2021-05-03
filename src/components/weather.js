@@ -4,15 +4,23 @@ import { Card } from 'semantic-ui-react';
 import moment from 'moment';
 
 const Weather = ({weatherData}) => (
-    <Card>
+    <Card className="main">
         <Card.Content>
             <Card.Header className="header">City Name: {weatherData.name} </Card.Header>
-            <p> Temperature: {weatherData.main.temp} </p>
-            <p> Sunrise: {weatherData.sys.sunrise} </p>
-            <p> Sunset: {weatherData.sys.sunset} </p>
-            <p> Description: {weatherData.weather[0].description} </p>
-            <p> Day: {moment().format('dddd')} </p>
-            <p> Date: {moment().format('LL')} </p>
+
+            <div className="flex">
+                <p className="day"> Day: {moment().format('dddd')} </p>
+                <p className="description"> Date: {moment().format('LL')} </p>
+            </div>
+            <div className="flex">
+                <p className="temp"> Temperature: {weatherData.main.temp} </p>
+                <p className="temp"> Description: {weatherData.weather[0].description} </p>
+            </div>
+            <div className="flex">
+                <p className="sunrise-sunset"> Sunrise: {weatherData.sys.sunrise} </p>
+                <p className="sunrise-sunset"> Sunset: {weatherData.sys.sunset} </p>
+            </div>
+            
         </Card.Content>
     </Card>
 )
